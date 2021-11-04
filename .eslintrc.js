@@ -39,7 +39,7 @@ module.exports = {
         functions: 'never',
       },
     ],
-    'object-curly-spacing': ['error', 'always']
+    'eol-last': ["error", "always"]
   },
   overrides: [
     {

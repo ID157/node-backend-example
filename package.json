@@ -35,6 +35,7 @@
    "scripts": {
       "preinstall": "typesync || :",
       "dev": "yarn run ts-node -r tsconfig-paths/register ./src/app.ts",
-      "start": "ts-node src/index.ts"
+      "start": "ts-node src/index.ts",
+      "migrate": "ts-node ./node_modules/.bin/typeorm migration:generate"
    }
 }
