@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "@prisma/client": "^3.2.1",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "prisma": "^3.2.1",
+    "mongodb": "^3.6.0",
+    "reflect-metadata": "^0.1.13",
     "ts-node": "^10.2.1",
+    "typeorm": "^0.2.38",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
@@ -30,6 +32,6 @@
   },
   "scripts": {
     "preinstall": "typesync || :",
-    "dev": "yarn run ts-node -r tsconfig-paths/register src/app.ts"
+    "dev": "yarn node --loader ts-node/esm src/app.ts"
   }
 }
