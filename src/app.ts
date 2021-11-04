@@ -1,16 +1,17 @@
 import { setup } from '@/src/submodules/base'
 import "reflect-metadata"
 import express from 'express'
-import { createConnection } from "typeorm"
+import { createConnection, Connection } from "typeorm"
 import { entities } from './typeorm/entity'
 import { config } from 'dotenv'
 
 // import controllers
 import indexController from '@/src/controllers/index'
 
-try {
-  config()
-  const connection = await createConnection()
+const DEFAULT_PORT = 3000
+
+config()
+createConnection().then((connection: Connection) => {
   const repositories = { 
     user: connection.getRepository(entities.user)
   }
@@ -21,11 +22,9 @@ try {
   const modules = [
     indexController
   ]
-
+  
   const setupedContexts = setup(context, modules)
-  setupedContexts.express.listen(3000, () => {
-    console.log(`App listening at http://localhost:${3000}`)
+  setupedContexts.express.listen(process.env.PORT || DEFAULT_PORT, () => {
+    console.log(`App listening at http://localhost:${process.env.PORT || DEFAULT_PORT}`)
   })
-} catch(e) {
-  console.error(e)
-}
+}).catch(err => console.error(err))

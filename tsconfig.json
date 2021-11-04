@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "module": "esnext",
-    "moduleResolution": "Node",
     "lib": [
       "ESNext",
       "ESNext.AsyncIterable"
@@ -16,7 +13,7 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "emitDecoratorMetadata": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "./*"
